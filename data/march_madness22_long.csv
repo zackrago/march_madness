@@ -1,0 +1,409 @@
+prob,school,team_rating,region,seed,round
+0.988315503,Gonzaga,96.47,West,1,1
+0.974672994,Kansas,91.72,Midwest,1,1
+0.954785246,Kentucky,91.23,East,2,1
+0.968361095,Arizona,91.39,South,1,1
+0.94613649,Auburn,89.6,Midwest,2,1
+0.948285722,Villanova,90.22,South,2,1
+0.945481071,Purdue,89.44,East,3,1
+0.810616792,Iowa,88.55,Midwest,5,1
+0.938408006,Tennessee,88.55,South,3,1
+0.926055075,UCLA,89.84,East,4,1
+0.750431517,Houston,88.15,South,5,1
+0.970915813,Duke,89.34,West,2,1
+0.926848935,Texas Tech,88.7,West,3,1
+0.96439315,Baylor,87.92,East,1,1
+0.815208911,Illinois,87.07,South,4,1
+0.670088406,Louisiana State,85.72,Midwest,6,1
+0.718409659,Arkansas,86.78,West,4,1
+0.848665183,Wisconsin,84.64,Midwest,3,1
+0.541793395,Texas,86.31,East,6,1
+0.86439005,Connecticut,86.45,West,5,1
+0.620860144,Alabama,85.15,West,6,1
+0.689843871,Michigan,84.73,South,11,1
+0.458206605,Virginia Tech,84.68,East,11,1
+0.57871646,North Carolina,83.99,East,8,1
+0.552055124,Ohio State,84.17,South,7,1
+0.541464303,Memphis,85.47,West,9,1
+0.621938596,Saint Mary's (CA),84.32,East,5,1
+0.447944876,Loyola (IL),83.7,South,10,1
+0.664987699,Providence,82.72,Midwest,4,1
+0.303247523,Indiana,83.01,East,12b,1
+0.5117736,Michigan State,83.49,West,7,1
+0.554353603,San Diego State,83.49,Midwest,8,1
+0.534690827,Southern California,83.43,Midwest,7,1
+0.507236821,Texas Christian,81.92,South,9,1
+0.492763179,Seton Hall,82.84,South,8,1
+0.42128354,Marquette,81.92,East,9,1
+0.458535697,Boise State,82.49,West,8,1
+0.445646397,Creighton,81.49,Midwest,9,1
+0.528026182,Murray State,81.37,East,7,1
+0.4882264,Davidson,81.92,West,10,1
+0.249568483,Alabama-Birmingham,81.15,South,12,1
+0.471973818,San Francisco,83,East,10,1
+0.465309173,Miami (FL),81.16,Midwest,10,1
+0.329911594,Iowa State,80.59,Midwest,11,1
+0.310156129,Colorado State,81.65,South,6,1
+0.219849958,Notre Dame,81.64,West,11b,1
+0.159289898,Rutgers,81.12,West,11a,1
+0.189383208,Richmond,79.71,Midwest,12,1
+0.335012301,South Dakota State,79.68,Midwest,13,1
+0.281590341,Vermont,80.32,West,13,1
+0.184791089,Chattanooga,78.68,South,13,1
+0.074813881,Wyoming,78.49,East,12a,1
+0.13560995,New Mexico State,77.67,West,12,1
+0.151334817,Colgate,76.39,Midwest,14,1
+0.073944925,Akron,76.67,East,13,1
+0.045214754,Saint Peter's,74.19,East,15,1
+0.054518929,Yale,74.44,East,14,1
+0.073151065,Montana State,74.31,West,14,1
+0.05386351,Jacksonville State,73.16,Midwest,15,1
+0.023401577,Wright State,73.5,South,16a,1
+0.061591994,Longwood,73.41,South,14,1
+0.051714278,Delaware,73.58,South,15,1
+0.011684497,Georgia State,73.48,West,16,1
+0.03560685,Norfolk State,71.42,East,16,1
+0.018687936,Texas Southern,70.37,Midwest,16a,1
+0.029084187,Cal State Fullerton,71.79,West,15,1
+0.008237328,Bryant,71.56,South,16b,1
+0.00663907,Texas A&M-Corpus Christi,67.32,Midwest,16b,1
+0.888231932,Gonzaga,96.47,West,1,2
+0.800722557,Kansas,91.72,Midwest,1,2
+0.801731397,Kentucky,91.23,East,2,2
+0.818197465,Arizona,91.39,South,1,2
+0.75597527,Auburn,89.6,Midwest,2,2
+0.677300424,Villanova,90.22,South,2,2
+0.636741669,Purdue,89.44,East,3,2
+0.598788004,Iowa,88.55,Midwest,5,2
+0.628958482,Tennessee,88.55,South,3,2
+0.657613428,UCLA,89.84,East,4,2
+0.418820355,Houston,88.15,South,5,2
+0.709424542,Duke,89.34,West,2,2
+0.638636456,Texas Tech,88.7,West,3,2
+0.70715005,Baylor,87.92,East,1,2
+0.443868183,Illinois,87.07,South,4,2
+0.352696739,Louisiana State,85.72,Midwest,6,2
+0.380887993,Arkansas,86.78,West,4,2
+0.480684857,Wisconsin,84.64,Midwest,3,2
+0.199541838,Texas,86.31,East,6,2
+0.488333253,Connecticut,86.45,West,5,2
+0.234148747,Alabama,85.15,West,6,2
+0.277068894,Michigan,84.73,South,11,2
+0.155701544,Virginia Tech,84.68,East,11,2
+0.178506113,North Carolina,83.99,East,8,2
+0.181621661,Ohio State,84.17,South,7,2
+0.062631917,Memphis,85.47,West,9,2
+0.220518278,Saint Mary's (CA),84.32,East,5,2
+0.132520714,Loyola (IL),83.7,South,10,2
+0.232113004,Providence,82.72,Midwest,4,2
+0.088503913,Indiana,83.01,East,12b,2
+0.148922678,Michigan State,83.49,West,7,2
+0.114495944,San Diego State,83.49,Midwest,8,2
+0.127797126,Southern California,83.43,Midwest,7,2
+0.089610095,Texas Christian,81.92,South,9,2
+0.085558717,Seton Hall,82.84,South,8,2
+0.109686652,Marquette,81.92,East,9,2
+0.047544465,Boise State,82.49,West,8,2
+0.08083219,Creighton,81.49,Midwest,9,2
+0.10138865,Murray State,81.37,East,7,2
+0.138535848,Davidson,81.92,West,10,2
+0.087648187,Alabama-Birmingham,81.15,South,12,2
+0.084866043,San Francisco,83,East,10,2
+0.102925057,Miami (FL),81.16,Midwest,10,2
+0.130069377,Iowa State,80.59,Midwest,11,2
+0.083674123,Colorado State,81.65,South,6,2
+0.067070823,Notre Dame,81.64,West,11b,2
+0.045346026,Rutgers,81.12,West,11a,2
+0.088067866,Richmond,79.71,Midwest,12,2
+0.081031126,South Dakota State,79.68,Midwest,13,2
+0.100518048,Vermont,80.32,West,13,2
+0.049663275,Chattanooga,78.68,South,13,2
+0.016997112,Wyoming,78.49,East,12a,2
+0.030260705,New Mexico State,77.67,West,12,2
+0.036549027,Colgate,76.39,Midwest,14,2
+0.016367268,Akron,76.67,East,13,2
+0.01201391,Saint Peter's,74.19,East,15,2
+0.008014949,Yale,74.44,East,14,2
+0.014797948,Montana State,74.31,West,14,2
+0.013302548,Jacksonville State,73.16,Midwest,15,2
+0.005165948,Wright State,73.5,South,16a,2
+0.010298501,Longwood,73.41,South,14,2
+0.0085572,Delaware,73.58,South,15,2
+0.001591686,Georgia State,73.48,West,16,2
+0.004657185,Norfolk State,71.42,East,16,2
+0.003190761,Texas Southern,70.37,Midwest,16a,2
+0.003116933,Cal State Fullerton,71.79,West,15,2
+0.001467776,Bryant,71.56,South,16b,2
+0.000758548,Texas A&M-Corpus Christi,67.32,Midwest,16b,2
+0.766178018,Gonzaga,96.47,West,1,3
+0.541826925,Kansas,91.72,Midwest,1,3
+0.484987486,Kentucky,91.23,East,2,3
+0.509311113,Arizona,91.39,South,1,3
+0.488051486,Auburn,89.6,Midwest,2,3
+0.402191266,Villanova,90.22,South,2,3
+0.315936117,Purdue,89.44,East,3,3
+0.286175912,Iowa,88.55,Midwest,5,3
+0.323322934,Tennessee,88.55,South,3,3
+0.375858557,UCLA,89.84,East,4,3
+0.214758998,Houston,88.15,South,5,3
+0.377252101,Duke,89.34,West,2,3
+0.3682348,Texas Tech,88.7,West,3,3
+0.355954628,Baylor,87.92,East,1,3
+0.178281907,Illinois,87.07,South,4,3
+0.15547226,Louisiana State,85.72,Midwest,6,3
+0.07965589,Arkansas,86.78,West,4,3
+0.212510353,Wisconsin,84.64,Midwest,3,3
+0.079300288,Texas,86.31,East,6,3
+0.08310251,Connecticut,86.45,West,5,3
+0.106832071,Alabama,85.15,West,6,3
+0.108824889,Michigan,84.73,South,11,3
+0.063122207,Virginia Tech,84.68,East,11,3
+0.085789085,North Carolina,83.99,East,8,3
+0.07832736,Ohio State,84.17,South,7,3
+0.034682897,Memphis,85.47,West,9,3
+0.087836462,Saint Mary's (CA),84.32,East,5,3
+0.056910521,Loyola (IL),83.7,South,10,3
+0.06045088,Providence,82.72,Midwest,4,3
+0.042059758,Indiana,83.01,East,12b,3
+0.057789042,Michigan State,83.49,West,7,3
+0.044236162,San Diego State,83.49,Midwest,8,3
+0.054936443,Southern California,83.43,Midwest,7,3
+0.034635906,Texas Christian,81.92,South,9,3
+0.029610786,Seton Hall,82.84,South,8,3
+0.042402096,Marquette,81.92,East,9,3
+0.02409789,Boise State,82.49,West,8,3
+0.031047826,Creighton,81.49,Midwest,9,3
+0.029167818,Murray State,81.37,East,7,3
+0.044407088,Davidson,81.92,West,10,3
+0.022885266,Alabama-Birmingham,81.15,South,12,3
+0.024830761,San Francisco,83,East,10,3
+0.037721401,Miami (FL),81.16,Midwest,10,3
+0.041965192,Iowa State,80.59,Midwest,11,3
+0.028091699,Colorado State,81.65,South,6,3
+0.025894101,Notre Dame,81.64,West,11b,3
+0.016510775,Rutgers,81.12,West,11a,3
+0.018254152,Richmond,79.71,Midwest,12,3
+0.01761775,South Dakota State,79.68,Midwest,13,3
+0.009427243,Vermont,80.32,West,13,3
+0.009648179,Chattanooga,78.68,South,13,3
+0.005219293,Wyoming,78.49,East,12a,3
+0.002599587,New Mexico State,77.67,West,12,3
+0.007143304,Colgate,76.39,Midwest,14,3
+0.004259767,Akron,76.67,East,13,3
+0.001430404,Saint Peter's,74.19,East,15,3
+0.001224919,Yale,74.44,East,14,3
+0.002654866,Montana State,74.31,West,14,3
+0.002199561,Jacksonville State,73.16,Midwest,15,3
+0.000708928,Wright State,73.5,South,16a,3
+0.00119568,Longwood,73.41,South,14,3
+0.00113565,Delaware,73.58,South,15,3
+0.000255964,Georgia State,73.48,West,16,3
+0.000620354,Norfolk State,71.42,East,16,3
+0.000335814,Texas Southern,70.37,Midwest,16a,3
+0.000425157,Cal State Fullerton,71.79,West,15,3
+0.000158915,Bryant,71.56,South,16b,3
+5.46E-05,Texas A&M-Corpus Christi,67.32,Midwest,16b,3
+0.61494146,Gonzaga,96.47,West,1,4
+0.358564607,Kansas,91.72,Midwest,1,4
+0.323653862,Kentucky,91.23,East,2,4
+0.315416811,Arizona,91.39,South,1,4
+0.229441765,Auburn,89.6,Midwest,2,4
+0.194682367,Villanova,90.22,South,2,4
+0.194554499,Purdue,89.44,East,3,4
+0.172681323,Iowa,88.55,Midwest,5,4
+0.145947613,Tennessee,88.55,South,3,4
+0.162030606,UCLA,89.84,East,4,4
+0.128215376,Houston,88.15,South,5,4
+0.110075273,Duke,89.34,West,2,4
+0.113186084,Texas Tech,88.7,West,3,4
+0.137930876,Baylor,87.92,East,1,4
+0.088027326,Illinois,87.07,South,4,4
+0.058107142,Louisiana State,85.72,Midwest,6,4
+0.041633052,Arkansas,86.78,West,4,4
+0.079660957,Wisconsin,84.64,Midwest,3,4
+0.041334428,Texas,86.31,East,6,4
+0.038122411,Connecticut,86.45,West,5,4
+0.024443192,Alabama,85.15,West,6,4
+0.037604249,Michigan,84.73,South,11,4
+0.033410399,Virginia Tech,84.68,East,11,4
+0.031585716,North Carolina,83.99,East,8,4
+0.026834081,Ohio State,84.17,South,7,4
+0.016523194,Memphis,85.47,West,9,4
+0.025465794,Saint Mary's (CA),84.32,East,5,4
+0.019411532,Loyola (IL),83.7,South,10,4
+0.02293928,Providence,82.72,Midwest,4,4
+0.014722364,Indiana,83.01,East,12b,4
+0.011681277,Michigan State,83.49,West,7,4
+0.016990725,San Diego State,83.49,Midwest,8,4
+0.016023989,Southern California,83.43,Midwest,7,4
+0.013878072,Texas Christian,81.92,South,9,4
+0.010729893,Seton Hall,82.84,South,8,4
+0.0123654,Marquette,81.92,East,9,4
+0.01046319,Boise State,82.49,West,8,4
+0.011858411,Creighton,81.49,Midwest,9,4
+0.01094415,Murray State,81.37,East,7,4
+0.007306367,Davidson,81.92,West,10,4
+0.007945337,Alabama-Birmingham,81.15,South,12,4
+0.009444427,San Francisco,83,East,10,4
+0.00928558,Miami (FL),81.16,Midwest,10,4
+0.011479096,Iowa State,80.59,Midwest,11,4
+0.008335696,Colorado State,81.65,South,6,4
+0.004888704,Notre Dame,81.64,West,11b,4
+0.002920723,Rutgers,81.12,West,11a,4
+0.005731522,Richmond,79.71,Midwest,12,4
+0.005758943,South Dakota State,79.68,Midwest,13,4
+0.002804777,Vermont,80.32,West,13,4
+0.002595951,Chattanooga,78.68,South,13,4
+0.001158759,Wyoming,78.49,East,12a,4
+0.000721287,New Mexico State,77.67,West,12,4
+0.00119313,Colgate,76.39,Midwest,14,4
+0.000801149,Akron,76.67,East,13,4
+0.00025297,Saint Peter's,74.19,East,15,4
+0.000282771,Yale,74.44,East,14,4
+0.000223877,Montana State,74.31,West,14,4
+0.000242631,Jacksonville State,73.16,Midwest,15,4
+0.000108588,Wright State,73.5,South,16a,4
+0.000127343,Longwood,73.41,South,14,4
+0.000120359,Delaware,73.58,South,15,4
+3.58E-05,Georgia State,73.48,West,16,4
+6.18E-05,Norfolk State,71.42,East,16,4
+3.68E-05,Texas Southern,70.37,Midwest,16a,4
+2.93E-05,Cal State Fullerton,71.79,West,15,4
+1.94E-05,Bryant,71.56,South,16b,4
+4.12E-06,Texas A&M-Corpus Christi,67.32,Midwest,16b,4
+0.41316804,Gonzaga,96.47,West,1,5
+0.205318748,Kansas,91.72,Midwest,1,5
+0.14861479,Kentucky,91.23,East,2,5
+0.169064524,Arizona,91.39,South,1,5
+0.123964058,Auburn,89.6,Midwest,2,5
+0.10230466,Villanova,90.22,South,2,5
+0.08010555,Purdue,89.44,East,3,5
+0.082758839,Iowa,88.55,Midwest,5,5
+0.073572942,Tennessee,88.55,South,3,5
+0.06395688,UCLA,89.84,East,4,5
+0.067166357,Houston,88.15,South,5,5
+0.058024608,Duke,89.34,West,2,5
+0.057058506,Texas Tech,88.7,West,3,5
+0.053257568,Baylor,87.92,East,1,5
+0.040632079,Illinois,87.07,South,4,5
+0.028167748,Louisiana State,85.72,Midwest,6,5
+0.020518909,Arkansas,86.78,West,4,5
+0.027901008,Wisconsin,84.64,Midwest,3,5
+0.016179549,Texas,86.31,East,6,5
+0.016133705,Connecticut,86.45,West,5,5
+0.011547042,Alabama,85.15,West,6,5
+0.014819284,Michigan,84.73,South,11,5
+0.010634703,Virginia Tech,84.68,East,11,5
+0.009221844,North Carolina,83.99,East,8,5
+0.010594076,Ohio State,84.17,South,7,5
+0.007715795,Memphis,85.47,West,9,5
+0.006849575,Saint Mary's (CA),84.32,East,5,5
+0.007518896,Loyola (IL),83.7,South,10,5
+0.007128438,Providence,82.72,Midwest,4,5
+0.004439755,Indiana,83.01,East,12b,5
+0.004490249,Michigan State,83.49,West,7,5
+0.005789032,San Diego State,83.49,Midwest,8,5
+0.005439643,Southern California,83.43,Midwest,7,5
+0.004786487,Texas Christian,81.92,South,9,5
+0.003758856,Seton Hall,82.84,South,8,5
+0.003048752,Marquette,81.92,East,9,5
+0.003166329,Boise State,82.49,West,8,5
+0.003655793,Creighton,81.49,Midwest,9,5
+0.002732407,Murray State,81.37,East,7,5
+0.002543958,Davidson,81.92,West,10,5
+0.00280734,Alabama-Birmingham,81.15,South,12,5
+0.002377208,San Francisco,83,East,10,5
+0.002918362,Miami (FL),81.16,Midwest,10,5
+0.003233926,Iowa State,80.59,Midwest,11,5
+0.002680799,Colorado State,81.65,South,6,5
+0.001789276,Notre Dame,81.64,West,11b,5
+0.001022589,Rutgers,81.12,West,11a,5
+0.001501168,Richmond,79.71,Midwest,12,5
+0.001486805,South Dakota State,79.68,Midwest,13,5
+0.00077579,Vermont,80.32,West,13,5
+0.000718199,Chattanooga,78.68,South,13,5
+0.000242621,Wyoming,78.49,East,12a,5
+0.000163882,New Mexico State,77.67,West,12,5
+0.000216842,Colgate,76.39,Midwest,14,5
+0.000117656,Akron,76.67,East,13,5
+2.88E-05,Saint Peter's,74.19,East,15,5
+2.97E-05,Yale,74.44,East,14,5
+3.08E-05,Montana State,74.31,West,14,5
+3.53E-05,Jacksonville State,73.16,Midwest,15,5
+1.74E-05,Wright State,73.5,South,16a,5
+1.83E-05,Longwood,73.41,South,14,5
+1.70E-05,Delaware,73.58,South,15,5
+5.63E-06,Georgia State,73.48,West,16,5
+4.59E-06,Norfolk State,71.42,East,16,5
+4.31E-06,Texas Southern,70.37,Midwest,16a,5
+2.91E-06,Cal State Fullerton,71.79,West,15,5
+2.49E-06,Bryant,71.56,South,16b,5
+3.30E-07,Texas A&M-Corpus Christi,67.32,Midwest,16b,5
+0.267723452,Gonzaga,96.47,West,1,6
+0.101302316,Kansas,91.72,Midwest,1,6
+0.082664534,Kentucky,91.23,East,2,6
+0.077933331,Arizona,91.39,South,1,6
+0.057582709,Auburn,89.6,Midwest,2,6
+0.046192596,Villanova,90.22,South,2,6
+0.040978696,Purdue,89.44,East,3,6
+0.034048916,Iowa,88.55,Midwest,5,6
+0.031816527,Tennessee,88.55,South,3,6
+0.031663826,UCLA,89.84,East,4,6
+0.030228265,Houston,88.15,South,5,6
+0.02988346,Duke,89.34,West,2,6
+0.028202047,Texas Tech,88.7,West,3,6
+0.025917918,Baylor,87.92,East,1,6
+0.016053662,Illinois,87.07,South,4,6
+0.011721774,Louisiana State,85.72,Midwest,6,6
+0.009933858,Arkansas,86.78,West,4,6
+0.008452994,Wisconsin,84.64,Midwest,3,6
+0.007958153,Texas,86.31,East,6,6
+0.006799793,Connecticut,86.45,West,5,6
+0.00537795,Alabama,85.15,West,6,6
+0.00499383,Michigan,84.73,South,11,6
+0.004441833,Virginia Tech,84.68,East,11,6
+0.003592143,North Carolina,83.99,East,8,6
+0.003576462,Ohio State,84.17,South,7,6
+0.003555863,Memphis,85.47,West,9,6
+0.00249505,Saint Mary's (CA),84.32,East,5,6
+0.002490523,Loyola (IL),83.7,South,10,6
+0.001925975,Providence,82.72,Midwest,4,6
+0.001775377,Indiana,83.01,East,12b,6
+0.00173488,Michigan State,83.49,West,7,6
+0.001708056,San Diego State,83.49,Midwest,8,6
+0.001599331,Southern California,83.43,Midwest,7,6
+0.001413154,Texas Christian,81.92,South,9,6
+0.001126984,Seton Hall,82.84,South,8,6
+0.001033409,Marquette,81.92,East,9,6
+0.00098573,Boise State,82.49,West,8,6
+0.000980248,Creighton,81.49,Midwest,9,6
+0.000935895,Murray State,81.37,East,7,6
+0.000898937,Davidson,81.92,West,10,6
+0.000848862,Alabama-Birmingham,81.15,South,12,6
+0.000819745,San Francisco,83,East,10,6
+0.000797056,Miami (FL),81.16,Midwest,10,6
+0.000795767,Iowa State,80.59,Midwest,11,6
+0.000738776,Colorado State,81.65,South,6,6
+0.000661385,Notre Dame,81.64,West,11b,6
+0.000363152,Rutgers,81.12,West,11a,6
+0.000344631,Richmond,79.71,Midwest,12,6
+0.000336694,South Dakota State,79.68,Midwest,13,6
+0.000222631,Vermont,80.32,West,13,6
+0.000170747,Chattanooga,78.68,South,13,6
+7.17E-05,Wyoming,78.49,East,12a,6
+3.93E-05,New Mexico State,77.67,West,12,6
+3.52E-05,Colgate,76.39,Midwest,14,6
+2.55E-05,Akron,76.67,East,13,6
+4.97E-06,Saint Peter's,74.19,East,15,6
+4.77E-06,Yale,74.44,East,14,6
+4.65E-06,Montana State,74.31,West,14,6
+4.62E-06,Jacksonville State,73.16,Midwest,15,6
+2.42E-06,Wright State,73.5,South,16a,6
+2.30E-06,Longwood,73.41,South,14,6
+2.10E-06,Delaware,73.58,South,15,6
+9.60E-07,Georgia State,73.48,West,16,6
+5.35E-07,Norfolk State,71.42,East,16,6
+4.58E-07,Texas Southern,70.37,Midwest,16a,6
+3.23E-07,Cal State Fullerton,71.79,West,15,6
+2.80E-07,Bryant,71.56,South,16b,6
+2.43E-08,Texas A&M-Corpus Christi,67.32,Midwest,16b,6

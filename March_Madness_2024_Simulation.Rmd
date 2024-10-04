@@ -1,0 +1,399 @@
+---
+title: "March Madness"
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+editor_options:
+  chunk_output_type: console
+---
+
+**FOR FUTURE REFERENCE**
+**For any given year the only changes needed are the new 538 file, dat24 becomes dat~CURRENT_YEAR~ throughout, and regional for loop must be altered to represent the regions including the first four matchups. Everything else is seemless in theory.**
+
+
+Download the probabilties data from Five Thirty Eight. (I manually formatted CSV to only be Mens Tournament on the back end)
+Order data for the functions we create below. (Line 21)
+
+```{r}
+library(tidyverse)
+library(mosaic)
+library(dplyr)
+library(ggplot2)
+```
+
+
+```{r}
+dat <- read.csv("~/Desktop/madness24.csv", stringsAsFactors = FALSE)
+
+dat24 <- dat
+dat24[, 5:10] <- dat[, 5:10] / dat[, 4:9]
+
+head(dat24)
+view(dat24)
+```
+Create a general tournament function (the best team plays the worst team, the second best team plays the second worst team...)
+So if you order the data frames as above,this makes picking the teams being simulated very easy (Line 34)
+The line of code after that simulates a game by pulling one sample (or team) according to their win probability in a given round.
+Collect our winners and output them as mat.small (Line 39)
+
+```{r}
+Tournament.Round <- function(mat.big = mat.16, rd = "rd2_win"){
+  vec.small <- c()
+  for(i in 1:(nrow(mat.big) / 2)){
+    ind <- c(i, nrow(mat.big) + 1 - i)
+    temp <- sample(x = ind, size = 1, prob = mat.big[ind, rd])
+    vec.small <- c(vec.small, temp)
+  }
+  mat.small <- mat.big[vec.small, ]
+}
+```
+
+Now we work by region in a for loop. This is nessecary to work through the BULLSHIT created by the First Four. 
+For 2021 the If statments are only functioning on the West and East regions but for future reference you can see how it would be structured for a region with 0, 1 or 2 first four matchups. 
+
+Then take the field of 64 and run through each following round based on the original probabilites. (Lines 94-103)
+
+```{r}
+Region.Simulation <- function(region = "Midwest", dat = dat24){
+  mat.17 <- dat[which(dat24$team_region == region),]
+  
+  
+  if(region == "West"){
+    first.four <- which(mat.17$team_seed == "16a" | mat.17$team_seed == "16b")
+    mat.16 <- rbind(mat.17[-first.four, ],
+                    mat.17[sample(x = first.four, size = 1,
+                                  prob = mat.17[first.four, "rd1_win"]), ])
+    mat.16[16, "team_seed"] <- "16"
+    mat.16[, "team_seed"] <- as.numeric(mat.16[, "team_seed"])
+    mat.16 <- mat.16[order(mat.16$team_seed), ]
+  }
+  if(region == "East"){
+    mat.16 <- mat.17
+    mat.16[, "team_seed"] <- as.numeric(mat.16[, "team_seed"])
+    mat.16 <- mat.16[order(mat.16$team_seed), ]
+  }
+
+  if(region == "Midwest"){
+    first.four <- which(mat.17$team_seed == "16a" | mat.17$team_seed == "16b")
+    mat.17 <- rbind(mat.17[-first.four, ],
+                    mat.17[sample(x = first.four, size = 1,
+                                  prob = mat.17[first.four, "rd1_win"]), ])
+    mat.17[17, "team_seed"] <- "16"
+    first.four <- which(mat.17$team_seed == "10a" | mat.17$team_seed == "10b")
+    mat.16 <- rbind(mat.17[-first.four, ],
+                    mat.17[sample(x = first.four, size = 1,
+                                  prob = mat.17[first.four, "rd1_win"]), ])
+    mat.16[16, "team_seed"] <- "10"
+
+    mat.16[, "team_seed"] <- as.numeric(mat.16[, "team_seed"])
+    mat.16 <- mat.16[order(mat.16$team_seed), ]
+  }
+  if(region == "South"){
+    first.four <- which(mat.17$team_seed == "10a" | mat.17$team_seed == "10b")
+    mat.16 <- rbind(mat.17[-first.four, ],
+                    mat.17[sample(x = first.four, size = 1,
+                                  prob = mat.17[first.four, "rd1_win"]), ])
+    mat.16[16, "team_seed"] <- "10"
+    mat.16[, "team_seed"] <- as.numeric(mat.16[, "team_seed"])
+    mat.16 <- mat.16[order(mat.16$team_seed), ]
+  }
+  # Round of 16
+  mat.8 <- Tournament.Round(mat.16, rd = "rd2_win")
+  mat.4 <- Tournament.Round(mat.8, rd = "rd3_win")
+  mat.2 <- Tournament.Round(mat.4, rd = "rd4_win")
+  mat.1 <- Tournament.Round(mat.2, rd = "rd5_win")
+  list(First_Four = mat.16[c(10, 16), "team_name"],
+       First_Round = mat.8[, "team_name"],
+       Second_Round = mat.4[, "team_name"],
+       Regional_Semis = mat.2[, "team_name"],
+       Regional_Final = mat.1[, c("team_name", "rd6_win", "rd7_win")])
+}
+```
+
+
+
+Take the previous functions and use outputs to simulate the Final Four and the championship.
+
+```{r}
+March.Madness.Simulation <- function(dat = dat24){
+  midwest <- Region.Simulation(region = "Midwest", dat = dat24)
+  east <- Region.Simulation(region = "East", dat = dat24)
+  west <- Region.Simulation(region = "West", dat = dat24)
+  south <- Region.Simulation(region = "South", dat = dat24)
+  reg1 <- sample(x = c("east", "west"), size = 1,
+                 prob = c(east$Regional_Final$rd6_win,
+                          west$Regional_Final$rd6_win))
+  National_Semi1 <- get(reg1)$Regional_Final
+  reg2 <- sample(x = c("midwest", "south"), size = 1,
+                 prob = c(midwest$Regional_Final$rd6_win,
+                          south$Regional_Final$rd6_win))
+  National_Semi2 <- get(reg2)$Regional_Final
+  National_Champ <- sample(x = c(National_Semi1$team_name,
+                                 National_Semi2$team_name),
+                           size = 1,
+                           prob = c(National_Semi1$rd7_win,
+                                    National_Semi2$rd7_win))
+  midwest$Regional_Final <- midwest$Regional_Final$team_name
+  east$Regional_Final <- east$Regional_Final$team_name
+  west$Regional_Final <- west$Regional_Final$team_name
+  south$Regional_Final <- south$Regional_Final$team_name
+  
+  list(Midwest = midwest, East = east, West = west, South = south,
+       National_Semi = c(National_Semi1$team_name, National_Semi2$team_name),
+       National_Champ = National_Champ)
+}
+ 
+```
+
+Now the fun!! 
+Create an empty vector and empty matrix of any replication size you want.(Lines 144-146)
+For Loop runs the simulation with 1:ANY AMOUNT YOU DESIRE of replicates. (Lines 149-152)
+From matrix to data frame. (Line 153)
+
+```{r}
+nat.champ.vec <- unlist(March.Madness.Simulation(dat = dat24))
+nat.champ.mat <- matrix("", nrow = 10000, ncol = length(nat.champ.vec))
+colnames(nat.champ.mat) <- names(nat.champ.vec)
+
+for(i in 1:10000){
+  set.seed(i)
+  nat.champ.mat[i, ] <- unlist(March.Madness.Simulation(dat = dat24))
+}
+nat.champ.mat <- as.data.frame(nat.champ.mat) 
+```
+
+Sort the data frame from most National Championships to least. (Line 160) 
+Most Common from Simulation (Line 163)
+
+```{r}
+tbl <- sort(table(nat.champ.mat$National_Champ), decreasing = TRUE)
+tbl
+
+t(t(apply(nat.champ.mat, 2, function(x){names(sort(table(x), decreasing = TRUE))[1]})))
+```
+Now visualize for more fun and make some good picks. 
+
+National Champions
+```{r}
+barplot(tbl/10000, col="cyan3", las=2, ylab="Probability", main="Win The Ship")
+```
+
+Final four probability by region
+```{r}
+south.tbl <- sort(table(nat.champ.mat$South.Regional_Final), decreasing = TRUE)
+west.tbl <- sort(table(nat.champ.mat$West.Regional_Final), decreasing = TRUE)
+east.tbl <- sort(table(nat.champ.mat$East.Regional_Final), decreasing = TRUE)
+midwest.tbl <- sort(table(nat.champ.mat$Midwest.Regional_Final), decreasing = TRUE)
+
+par(mfrow=c(2,2))
+par(mar=c(8,4,4,4))
+
+barplot(south.tbl/10000, col="blue", las=2, ylab="Probability", main="South Region")
+barplot(west.tbl/10000, col="green", las=2, ylab="Probability", main="West Region")
+barplot(midwest.tbl/10000, col="red", las=2, ylab="Probability", main="Midwest Region")
+barplot(east.tbl/10000, col="purple", las=2, ylab="Probability", main="East Region")
+```
+
+
+2 vs 15
+```{r}
+iowast.sdak.tbl <- sort(table(nat.champ.mat$East.First_Round2), decreasing = TRUE)
+zona.lbsu.tbl <- sort(table(nat.champ.mat$West.First_Round2 ), decreasing = TRUE)
+marq.wky.tbl <- sort(table(nat.champ.mat$South.First_Round2 ), decreasing = TRUE)
+tenn.spu.tbl <- sort(table(nat.champ.mat$Midwest.First_Round2 ), decreasing = TRUE)
+
+barplot(iowast.sdak.tbl/10000, col=c("firebrick", "blue"), ylab="Probability")
+barplot(zona.lbsu.tbl/10000, col=c("red","gold"), ylab="Probability")
+barplot(marq.wky.tbl/10000, col=c("darkblue", "red"), ylab="Probability")
+barplot(tenn.spu.tbl/10000, col=c("orange","deepskyblue4"), ylab="Probability")
+```
+
+3 vs 14
+```{r}
+ill.more.tbl <- sort(table(nat.champ.mat$East.First_Round3), decreasing = TRUE)
+bay.colg.tbl <- sort(table(nat.champ.mat$West.First_Round3 ), decreasing = TRUE)
+uk.oak.tbl <- sort(table(nat.champ.mat$South.First_Round3 ), decreasing = TRUE)
+crei.akro.tbl <- sort(table(nat.champ.mat$Midwest.First_Round3 ), decreasing = TRUE)
+
+barplot(ill.more.tbl/10000, col=c("chocolate1","royalblue1"), ylab="Probability")
+barplot(bay.colg.tbl/10000, col=c("forestgreen","firebrick2"), ylab="Probability")
+barplot(uk.oak.tbl/10000, col=c("blue","gold3"), ylab="Probability")
+barplot(crei.akro.tbl/10000, col=c("blue1","darkblue"), ylab="Probability")
+```
+
+4 vs 13
+```{r}
+aub.yale.tbl <- sort(table(nat.champ.mat$East.First_Round4), decreasing = TRUE)
+bama.char.tbl <- sort(table(nat.champ.mat$West.First_Round4 ), decreasing = TRUE)
+duke.vrm.tbl <- sort(table(nat.champ.mat$South.First_Round4), decreasing = TRUE)
+ku.sam.tbl <- sort(table(nat.champ.mat$Midwest.First_Round4), decreasing = TRUE)
+
+barplot(aub.yale.tbl/10000, col=c("tomato2","royalblue4"), ylab="Probability")
+barplot(bama.char.tbl/10000, col=c("red4","indianred4"), ylab="Probability")
+barplot(duke.vrm.tbl/10000, col=c("blue","gold"), ylab="Probability")
+barplot(ku.sam.tbl/10000, col=c("blue","red"), ylab="Probability")
+```
+
+5 vs 12
+```{r}
+sdsu.uab.tbl <- sort(table(nat.champ.mat$East.First_Round5 ), decreasing = TRUE)
+mary.gcu.tbl <- sort(table(nat.champ.mat$West.First_Round5 ), decreasing = TRUE)
+wis.jmu.tbl <- sort(table(nat.champ.mat$South.First_Round5 ), decreasing = TRUE)
+zaga.mcns.tbl <- sort(table(nat.champ.mat$Midwest.First_Round5 ), decreasing = TRUE)
+
+barplot(sdsu.uab.tbl/10000, col=c("darkred","darkgreen"), ylab="Probability")
+barplot(mary.gcu.tbl/10000, col=c("red3","purple"), ylab="Probability")
+barplot(wis.jmu.tbl/10000, col=c("red","darkblue"), ylab="Probability")
+barplot(zaga.mcns.tbl/10000, col=c("grey30","gold"), ylab="Probability")
+```
+
+6 vs 11
+```{r}
+byu.dnq.tbl <- sort(table(nat.champ.mat$East.First_Round6 ), decreasing = TRUE)
+clem.nmu.tbl <- sort(table(nat.champ.mat$West.First_Round6 ), decreasing = TRUE)
+tt.ncst.tbl <- sort(table(nat.champ.mat$South.First_Round6 ), decreasing = TRUE)
+ore.scu.tbl <- sort(table(nat.champ.mat$Midwest.First_Round6 ), decreasing = TRUE)
+
+barplot(byu.dnq.tbl/10000, col=c("blue","darkblue"), ylab="Probability")
+barplot(clem.nmu.tbl/10000, col=c("orange2","darkred"), ylab="Probability")
+barplot(tt.ncst.tbl/10000, col=c("red","red3"), ylab="Probability")
+barplot(ore.scu.tbl/10000, col=c("darkred","green"), ylab="Probability")
+```
+
+7 vs 10
+```{r}
+wazzu.drk.tbl <- sort(table(nat.champ.mat$East.First_Round7 ), decreasing = TRUE)
+day.nev.tbl <- sort(table(nat.champ.mat$West.First_Round7 ), decreasing = TRUE)
+fla.colo.bsu.tbl <- sort(table(nat.champ.mat$South.First_Round7 ), decreasing = TRUE)
+tex.csu.uva.tbl <- sort(table(nat.champ.mat$Midwest.First_Round7 ), decreasing = TRUE)
+
+barplot(wazzu.drk.tbl/10000, col=c("blue","grey"), ylab="Probability")
+barplot(day.nev.tbl/10000, col=c("darkblue","red"), ylab="Probability")
+barplot(fla.colo.bsu.tbl/10000, col=c("blue","gold","orange"), ylab="Probability")
+barplot(tex.csu.uva.tbl/10000, col=c("orange3","darkblue", "darkgreen"), ylab="Probability")
+```
+
+8 vs 9
+```{r}
+fau.nw.tbl <- sort(table(nat.champ.mat$East.First_Round8), decreasing = TRUE)
+misst.msu.tbl <- sort(table(nat.champ.mat$West.First_Round8 ), decreasing = TRUE)
+neb.tam.tbl <- sort(table(nat.champ.mat$South.First_Round8 ), decreasing = TRUE)
+usu.tcu.tbl <- sort(table(nat.champ.mat$Midwest.First_Round8 ), decreasing = TRUE)
+
+barplot(fau.nw.tbl/10000, col=c("royalblue","purple3"), ylab="Probability")
+barplot(misst.msu.tbl/10000, col=c("green4","red4"), ylab="Probability")
+barplot(neb.tam.tbl/10000, col=c("darkred","red"), ylab="Probability")
+barplot(usu.tcu.tbl/10000, col=c("purple","royalblue3"), ylab="Probability")
+```
+
+
+25 Bracket Simulations 
+```{r}
+sim1 <- March.Madness.Simulation(dat=dat24)
+sim2 <- March.Madness.Simulation(dat=dat24)
+sim3 <- March.Madness.Simulation(dat=dat24)
+sim4 <- March.Madness.Simulation(dat=dat24)
+sim5 <- March.Madness.Simulation(dat=dat24)
+sim6 <- March.Madness.Simulation(dat=dat24)
+sim7 <- March.Madness.Simulation(dat=dat24)
+sim8 <- March.Madness.Simulation(dat=dat24)
+sim9 <- March.Madness.Simulation(dat=dat24)
+sim10 <- March.Madness.Simulation(dat=dat24)
+sim11 <- March.Madness.Simulation(dat=dat24)
+sim12 <- March.Madness.Simulation(dat=dat24)
+sim13 <- March.Madness.Simulation(dat=dat24)
+sim14 <- March.Madness.Simulation(dat=dat24)
+sim15 <- March.Madness.Simulation(dat=dat24)
+sim16 <- March.Madness.Simulation(dat=dat24)
+sim17 <- March.Madness.Simulation(dat=dat24)
+sim18 <- March.Madness.Simulation(dat=dat24)
+sim19 <- March.Madness.Simulation(dat=dat24)
+sim20 <- March.Madness.Simulation(dat=dat24)
+sim21 <- March.Madness.Simulation(dat=dat24)
+sim22 <- March.Madness.Simulation(dat=dat24)
+sim23 <- March.Madness.Simulation(dat=dat24)
+sim24 <- March.Madness.Simulation(dat=dat24)
+sim25 <- March.Madness.Simulation(dat=dat24)
+```
+```{r}
+sim26 <- March.Madness.Simulation(dat=dat24)
+sim27 <- March.Madness.Simulation(dat=dat24)
+sim28 <- March.Madness.Simulation(dat=dat24)
+sim29 <- March.Madness.Simulation(dat=dat24)
+sim30 <- March.Madness.Simulation(dat=dat24)
+sim31 <- March.Madness.Simulation(dat=dat24)
+sim32 <- March.Madness.Simulation(dat=dat24)
+sim33 <- March.Madness.Simulation(dat=dat24)
+sim34 <- March.Madness.Simulation(dat=dat24)
+sim35 <- March.Madness.Simulation(dat=dat24)
+sim36 <- March.Madness.Simulation(dat=dat24)
+sim37 <- March.Madness.Simulation(dat=dat24)
+sim38 <- March.Madness.Simulation(dat=dat24)
+sim39 <- March.Madness.Simulation(dat=dat24)
+sim40 <- March.Madness.Simulation(dat=dat24)
+sim41 <- March.Madness.Simulation(dat=dat24)
+sim42 <- March.Madness.Simulation(dat=dat24)
+sim43 <- March.Madness.Simulation(dat=dat24)
+sim44 <- March.Madness.Simulation(dat=dat24)
+sim45 <- March.Madness.Simulation(dat=dat24)
+sim46 <- March.Madness.Simulation(dat=dat24)
+sim47 <- March.Madness.Simulation(dat=dat24)
+sim48 <- March.Madness.Simulation(dat=dat24)
+sim49 <- March.Madness.Simulation(dat=dat24)
+sim50<- March.Madness.Simulation(dat=dat24)
+sim51 <- March.Madness.Simulation(dat=dat24)
+sim52 <- March.Madness.Simulation(dat=dat24)
+sim53 <- March.Madness.Simulation(dat=dat24)
+sim54 <- March.Madness.Simulation(dat=dat24)
+sim55 <- March.Madness.Simulation(dat=dat24)
+sim56 <- March.Madness.Simulation(dat=dat24)
+sim57 <- March.Madness.Simulation(dat=dat24)
+sim58 <- March.Madness.Simulation(dat=dat24)
+sim59 <- March.Madness.Simulation(dat=dat24)
+sim60 <- March.Madness.Simulation(dat=dat24)
+sim61 <- March.Madness.Simulation(dat=dat24)
+sim62 <- March.Madness.Simulation(dat=dat24)
+sim63 <- March.Madness.Simulation(dat=dat24)
+sim64 <- March.Madness.Simulation(dat=dat24)
+sim65 <- March.Madness.Simulation(dat=dat24)
+sim66 <- March.Madness.Simulation(dat=dat24)
+sim67 <- March.Madness.Simulation(dat=dat24)
+sim68 <- March.Madness.Simulation(dat=dat24)
+sim69 <- March.Madness.Simulation(dat=dat24)
+sim70 <- March.Madness.Simulation(dat=dat24)
+sim71 <- March.Madness.Simulation(dat=dat24)
+sim72 <- March.Madness.Simulation(dat=dat24)
+sim73 <- March.Madness.Simulation(dat=dat24)
+sim74 <- March.Madness.Simulation(dat=dat24)
+sim75 <- March.Madness.Simulation(dat=dat24)
+sim76 <- March.Madness.Simulation(dat=dat24)
+sim77 <- March.Madness.Simulation(dat=dat24)
+sim78 <- March.Madness.Simulation(dat=dat24)
+sim79 <- March.Madness.Simulation(dat=dat24)
+sim80 <- March.Madness.Simulation(dat=dat24)
+sim81 <- March.Madness.Simulation(dat=dat24)
+sim82 <- March.Madness.Simulation(dat=dat24)
+sim83 <- March.Madness.Simulation(dat=dat24)
+sim84 <- March.Madness.Simulation(dat=dat24)
+sim85 <- March.Madness.Simulation(dat=dat24)
+sim86 <- March.Madness.Simulation(dat=dat24)
+```
+
+```{r}
+sim87 <- March.Madness.Simulation(dat=dat24)
+sim88 <- March.Madness.Simulation(dat=dat24)
+sim89 <- March.Madness.Simulation(dat=dat24)
+sim90 <- March.Madness.Simulation(dat=dat24)
+sim91 <- March.Madness.Simulation(dat=dat24)
+sim92 <- March.Madness.Simulation(dat=dat24)
+sim93 <- March.Madness.Simulation(dat=dat24)
+sim94 <- March.Madness.Simulation(dat=dat24)
+sim95 <- March.Madness.Simulation(dat=dat24)
+sim96 <- March.Madness.Simulation(dat=dat24)
+sim97 <- March.Madness.Simulation(dat=dat24)
+sim98 <- March.Madness.Simulation(dat=dat24)
+sim99 <- March.Madness.Simulation(dat=dat24)
+```
+
+
