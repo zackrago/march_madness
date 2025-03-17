@@ -1,0 +1,52 @@
+---
+title: "March Madness"
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+editor_options:
+  chunk_output_type: console
+---
+
+**FOR FUTURE REFERENCE**
+**For any given year the only changes needed are the new 538 file, dat25 becomes dat~CURRENT_YEAR~ throughout, and regional for loop must be altered to represent the regions including the first four matchups. Everything else is seamless in theory.**
+
+```{r}
+library(tidyverse)
+library(mosaic)
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+# Load dataset with corrected path
+dat <- read_csv("madness2025.csv")
+
+# Ensure numeric calculations apply correctly to probability columns
+probability_cols <- c("rd1_win", "rd2_win", "rd3_win", "rd4_win", "rd5_win", "rd6_win")
+dat25 <- dat
+
+dat25[probability_cols] <- dat[probability_cols] / dat[probability_cols]
+
+# Display the first few rows to verify data
+dat25 %>% head()
+```
+
+### Tournament Simulation Function
+
+```{r}
+tournament_simulation <- function(data) {
+  data <- data %>% arrange(desc(rd1_win))
+  
+  # Example: Simulate round 1 winners (more detailed logic may be needed)
+  data$winner <- ifelse(runif(nrow(data)) < data$rd1_win, 1, 0)
+  
+  return(data)
+}
+```
+
+```{r}
+# Run a basic simulation
+simulated_data <- tournament_simulation(dat25)
+head(simulated_data)
+```
