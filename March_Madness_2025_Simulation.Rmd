@@ -191,10 +191,10 @@ midwest.tbl <- sort(table(nat.champ.mat$Midwest.Regional_Final), decreasing = TR
 par(mfrow=c(2,2))
 par(mar=c(8,4,4,4))
 
-barplot(south.tbl/10000, col="blue", las=2, ylab="Probability", main="South Region")
-barplot(west.tbl/10000, col="green", las=2, ylab="Probability", main="West Region")
-barplot(midwest.tbl/10000, col="red", las=2, ylab="Probability", main="Midwest Region")
-barplot(east.tbl/10000, col="purple", las=2, ylab="Probability", main="East Region")
+barplot(south.tbl/10000, col="steelblue", las=2, ylab="Probability", main="South Region")
+barplot(west.tbl/10000, col="seagreen3", las=2, ylab="Probability", main="West Region")
+barplot(midwest.tbl/10000, col="orchid2", las=2, ylab="Probability", main="Midwest Region")
+barplot(east.tbl/10000, col="gold2", las=2, ylab="Probability", main="East Region")
 ```
 
 
@@ -207,7 +207,7 @@ tenn.spu.tbl <- sort(table(nat.champ.mat$Midwest.First_Round2 ), decreasing = TR
 
 barplot(iowast.sdak.tbl/10000, col=c("firebrick", "blue"), ylab="Probability")
 barplot(zona.lbsu.tbl/10000, col=c("red","gold"), ylab="Probability")
-barplot(marq.wky.tbl/10000, col=c("darkblue", "red"), ylab="Probability")
+barplot(marq.wky.tbl/10000, col=c("darkgreen", "red"), ylab="Probability")
 barplot(tenn.spu.tbl/10000, col=c("orange","deepskyblue4"), ylab="Probability")
 ```
 
@@ -218,9 +218,9 @@ bay.colg.tbl <- sort(table(nat.champ.mat$West.First_Round3 ), decreasing = TRUE)
 uk.oak.tbl <- sort(table(nat.champ.mat$South.First_Round3 ), decreasing = TRUE)
 crei.akro.tbl <- sort(table(nat.champ.mat$Midwest.First_Round3 ), decreasing = TRUE)
 
-barplot(ill.more.tbl/10000, col=c("chocolate1","royalblue1"), ylab="Probability")
-barplot(bay.colg.tbl/10000, col=c("forestgreen","firebrick2"), ylab="Probability")
-barplot(uk.oak.tbl/10000, col=c("blue","gold3"), ylab="Probability")
+barplot(ill.more.tbl/10000, col=c("red","royalblue1"), ylab="Probability")
+barplot(bay.colg.tbl/10000, col=c("red3","cyan4"), ylab="Probability")
+barplot(uk.oak.tbl/10000, col=c("gold","blue"), ylab="Probability")
 barplot(crei.akro.tbl/10000, col=c("blue1","darkblue"), ylab="Probability")
 ```
 
@@ -231,10 +231,10 @@ bama.char.tbl <- sort(table(nat.champ.mat$West.First_Round4 ), decreasing = TRUE
 duke.vrm.tbl <- sort(table(nat.champ.mat$South.First_Round4), decreasing = TRUE)
 ku.sam.tbl <- sort(table(nat.champ.mat$Midwest.First_Round4), decreasing = TRUE)
 
-barplot(aub.yale.tbl/10000, col=c("tomato2","royalblue4"), ylab="Probability")
-barplot(bama.char.tbl/10000, col=c("red4","indianred4"), ylab="Probability")
-barplot(duke.vrm.tbl/10000, col=c("blue","gold"), ylab="Probability")
-barplot(ku.sam.tbl/10000, col=c("blue","red"), ylab="Probability")
+barplot(aub.yale.tbl/10000, col=c("red","royalblue4"), ylab="Probability")
+barplot(bama.char.tbl/10000, col=c("red","purple"), ylab="Probability")
+barplot(duke.vrm.tbl/10000, col=c("darkred","navy"), ylab="Probability")
+barplot(ku.sam.tbl/10000, col=c("yellow3","purple"), ylab="Probability")
 ```
 
 5 vs 12
@@ -244,10 +244,10 @@ mary.gcu.tbl <- sort(table(nat.champ.mat$West.First_Round5 ), decreasing = TRUE)
 wis.jmu.tbl <- sort(table(nat.champ.mat$South.First_Round5 ), decreasing = TRUE)
 zaga.mcns.tbl <- sort(table(nat.champ.mat$Midwest.First_Round5 ), decreasing = TRUE)
 
-barplot(sdsu.uab.tbl/10000, col=c("darkred","darkgreen"), ylab="Probability")
-barplot(mary.gcu.tbl/10000, col=c("red3","purple"), ylab="Probability")
-barplot(wis.jmu.tbl/10000, col=c("red","darkblue"), ylab="Probability")
-barplot(zaga.mcns.tbl/10000, col=c("grey30","gold"), ylab="Probability")
+barplot(sdsu.uab.tbl/10000, col=c("green","red"), ylab="Probability")
+barplot(mary.gcu.tbl/10000, col=c("darkgreen","blue"), ylab="Probability")
+barplot(wis.jmu.tbl/10000, col=c("yellow","darkblue"), ylab="Probability")
+barplot(zaga.mcns.tbl/10000, col=c("orange","blue"), ylab="Probability")
 ```
 
 6 vs 11
@@ -257,10 +257,10 @@ clem.nmu.tbl <- sort(table(nat.champ.mat$West.First_Round6 ), decreasing = TRUE)
 tt.ncst.tbl <- sort(table(nat.champ.mat$South.First_Round6 ), decreasing = TRUE)
 ore.scu.tbl <- sort(table(nat.champ.mat$Midwest.First_Round6 ), decreasing = TRUE)
 
-barplot(byu.dnq.tbl/10000, col=c("blue","darkblue"), ylab="Probability")
-barplot(clem.nmu.tbl/10000, col=c("orange2","darkred"), ylab="Probability")
-barplot(tt.ncst.tbl/10000, col=c("red","red3"), ylab="Probability")
-barplot(ore.scu.tbl/10000, col=c("darkred","green"), ylab="Probability")
+barplot(byu.dnq.tbl/10000, col=c("blue","grey40"), ylab="Probability")
+barplot(clem.nmu.tbl/10000, col=c("gold2","blue"), ylab="Probability")
+barplot(tt.ncst.tbl/10000, col=c("red","skyblue", "darkred"), ylab="Probability")
+barplot(ore.scu.tbl/10000, col=c("orange","navy","orange3"), ylab="Probability")
 ```
 
 7 vs 10
@@ -270,10 +270,10 @@ day.nev.tbl <- sort(table(nat.champ.mat$West.First_Round7 ), decreasing = TRUE)
 fla.colo.bsu.tbl <- sort(table(nat.champ.mat$South.First_Round7 ), decreasing = TRUE)
 tex.csu.uva.tbl <- sort(table(nat.champ.mat$Midwest.First_Round7 ), decreasing = TRUE)
 
-barplot(wazzu.drk.tbl/10000, col=c("blue","grey"), ylab="Probability")
+barplot(wazzu.drk.tbl/10000, col=c("blue","gold2"), ylab="Probability")
 barplot(day.nev.tbl/10000, col=c("darkblue","red"), ylab="Probability")
-barplot(fla.colo.bsu.tbl/10000, col=c("blue","gold","orange"), ylab="Probability")
-barplot(tex.csu.uva.tbl/10000, col=c("orange3","darkblue", "darkgreen"), ylab="Probability")
+barplot(fla.colo.bsu.tbl/10000, col=c("blue","grey"), ylab="Probability")
+barplot(tex.csu.uva.tbl/10000, col=c("skyblue","darkblue"), ylab="Probability")
 ```
 
 8 vs 9
@@ -283,10 +283,10 @@ misst.msu.tbl <- sort(table(nat.champ.mat$West.First_Round8 ), decreasing = TRUE
 neb.tam.tbl <- sort(table(nat.champ.mat$South.First_Round8 ), decreasing = TRUE)
 usu.tcu.tbl <- sort(table(nat.champ.mat$Midwest.First_Round8 ), decreasing = TRUE)
 
-barplot(fau.nw.tbl/10000, col=c("royalblue","purple3"), ylab="Probability")
-barplot(misst.msu.tbl/10000, col=c("green4","red4"), ylab="Probability")
-barplot(neb.tam.tbl/10000, col=c("darkred","red"), ylab="Probability")
-barplot(usu.tcu.tbl/10000, col=c("purple","royalblue3"), ylab="Probability")
+barplot(fau.nw.tbl/10000, col=c("green4","red4"), ylab="Probability")
+barplot(misst.msu.tbl/10000, col=c("blue4","red4"), ylab="Probability")
+barplot(neb.tam.tbl/10000, col=c("red","blue"), ylab="Probability")
+barplot(usu.tcu.tbl/10000, col=c("royalblue3", "red"), ylab="Probability")
 ```
 
 
@@ -318,6 +318,7 @@ sim23 <- March.Madness.Simulation(dat=dat25)
 sim24 <- March.Madness.Simulation(dat=dat25)
 sim25 <- March.Madness.Simulation(dat=dat25)
 ```
+
 ```{r}
 sim26 <- March.Madness.Simulation(dat=dat25)
 sim27 <- March.Madness.Simulation(dat=dat25)
@@ -344,6 +345,10 @@ sim47 <- March.Madness.Simulation(dat=dat25)
 sim48 <- March.Madness.Simulation(dat=dat25)
 sim49 <- March.Madness.Simulation(dat=dat25)
 sim50<- March.Madness.Simulation(dat=dat25)
+```
+
+
+```{r}
 sim51 <- March.Madness.Simulation(dat=dat25)
 sim52 <- March.Madness.Simulation(dat=dat25)
 sim53 <- March.Madness.Simulation(dat=dat25)
@@ -369,6 +374,10 @@ sim72 <- March.Madness.Simulation(dat=dat25)
 sim73 <- March.Madness.Simulation(dat=dat25)
 sim74 <- March.Madness.Simulation(dat=dat25)
 sim75 <- March.Madness.Simulation(dat=dat25)
+```
+
+
+```{r}
 sim76 <- March.Madness.Simulation(dat=dat25)
 sim77 <- March.Madness.Simulation(dat=dat25)
 sim78 <- March.Madness.Simulation(dat=dat25)
