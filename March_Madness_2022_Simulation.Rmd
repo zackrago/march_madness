@@ -22,8 +22,8 @@ library(dplyr)
 library(ggplot2)
 library(plotly)
 library(gapminder)
-dat <- read.csv("~/Desktop/R/march_madness/march_madness22.csv", stringsAsFactors = FALSE)
-dat.long <- read.csv("~/Desktop/R/march_madness/march_madness22_long.csv", stringsAsFactors = FALSE)
+dat <- read.csv("~/documents/R/march_madness/data/march_madness22.csv", stringsAsFactors = FALSE)
+
 dat22 <- dat
 dat22[, 5:10] <- dat[, 5:10] / dat[, 4:9]
 
